@@ -14,7 +14,8 @@ export function solution(arr: number[]) {
 
   const result = pipe(
     arr,
-    _order((a, b) => a - b),
+    // @ts-ignore
+    _order((a, b) => a - b || isNaN(a) - isNaN(b)),
     _map((num) => Math.floor(num)),
     _filter(findMissingNumber),
     _add(1)
